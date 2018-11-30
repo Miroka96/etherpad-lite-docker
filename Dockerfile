@@ -1,9 +1,11 @@
-FROM node:9.3
+# https://nodejs.org/
+FROM node:lts
 
-ENV ETHERPAD_VERSION 1.6.2
+# https://github.com/ether/etherpad-lite/releases
+ENV ETHERPAD_VERSION 1.7.0
 
 RUN apt-get update && \
-    apt-get install -y curl unzip npm mysql-client
+    apt-get install -y curl unzip mysql-client
 
 WORKDIR /opt/
 

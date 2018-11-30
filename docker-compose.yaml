@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
     environment:
       - ETHERPAD_TITLE
       - ETHERPAD_DEFAULT_PAD_TEXT
@@ -17,11 +18,12 @@ services:
       - ETHERPAD_DB_NAME
       - ETHERPAD_API_KEY
       - ETHERPAD_SESSION_REQUIRED
+      - NODE_ENV
     ports:
       - "127.0.0.1:${ETHERPAD_HOST_PORT}:9001"
 
   mariadb:
-    image: mariadb:10.0
+    image: mariadb:latest
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD
